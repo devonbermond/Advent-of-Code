@@ -21,3 +21,9 @@ for item in list1:
     total = total + abs(int(item) - int(list2[x]))
     x = x + 1
 print(total)
+
+sim_score = 0;
+for item in list1:
+    score = list2.count(item)
+    sim_score = sim_score + (int(item) * score)
+print(sim_score)
