@@ -9,15 +9,17 @@ total = 0
 new = 0
 for item in file_data:
     temp = item.split(" ")
-    for i in range(0, 5):
-        if (int(temp[i]) < int(temp[i + 1]) < int(temp[i + 2]) < int(temp[i + 3]) < int(temp[i + 4]) < int(temp[i + 5])) or (int(temp[i]) > int(temp[i + 1]) > int(temp[i + 2]) > int(temp[i + 3]) > int(temp[i + 4]) > int(temp[i + 5])):
-            if not(1 <= abs(int(temp[i]) - int(temp[i + 1])) <= 3):
-                break
-            else:
-                new = new + 1
-
-    if new == 4:
-        total = total + 1
-    new = 0
+    for i in range(0, len(temp) - 1):
+        if int(temp[i]) - 1 == int(temp[i + 1]) or int(temp[i]) - 2 == int(temp[i + 1]) or int(temp[i]) - 3 == int(temp[i + 1]):
+            if i + 1 == len(temp) - 1:
+                total = total + 1
+        else:
+            break
+    for i in range(0,len(temp) - 1):
+        if int(temp[i]) + 1 == int(temp[i + 1]) or int(temp[i]) + 2 == int(temp[i + 1]) or int(temp[i]) + 3 == int(temp[i + 1]):
+            if i + 1 == len(temp) - 1:
+                total = total + 1
+        else:
+            break
 
 print(total)
