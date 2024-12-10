@@ -9,12 +9,14 @@ def get_file_data(file_name):
 
 
 file_data = get_file_data("input.txt")
-
-regex = "mul\\([1-9]+,[1-9]+\\)"
+split = ""
+regex = "mul\\([0-9]+,[0-9]+\\)"
 for i in file_data:
     matches = re.findall(regex, i)
     for item in matches:
         split = item.lstrip("mul(")
         split = split.rstrip(")")
-        
-print(split)
+        nums = split.split(",")
+        total = total + int(nums[0]) * int(nums[1])
+
+print(total)
